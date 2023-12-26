@@ -170,7 +170,7 @@ override.tf.json
 *_override.tf.json
 .terraform/
 terraform.*
-
+.terraform*
 
 .gcp*
 

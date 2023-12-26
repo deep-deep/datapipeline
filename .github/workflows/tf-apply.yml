@@ -1,0 +1,27 @@
+name: Terraform Apply
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Init
+      run: terraform init
+
+    - name: Terraform Apply
+      run: terraform apply -auto-approve
+      env:
+        TF_VAR_credentials: ${{ secrets.TF_VAR_credentials }}
+        TF_VAR_project: ${{ env.TF_VAR_project}}
+        TF_VAR_location: ${{ env.TF_VAR_location}}
