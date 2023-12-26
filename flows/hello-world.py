@@ -12,12 +12,12 @@ if __name__ == "__main__":
     deploy(
     hello_world.to_deployment(
         name = "hello-world-one",
-        cron = "* * * * *",
+        cron = "*/5 * * * *",
         parameters = {"s" : "one"}
     ),
     hello_world.to_deployment(
         name = "hello-world-two",
-        cron = "* * * * *",
+        cron = "*/30 * * * *",
         parameters = {"s":"two"}
     ),
     work_pool_name = "test",
