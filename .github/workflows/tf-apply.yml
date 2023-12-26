@@ -16,8 +16,8 @@ jobs:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v3
 
-    - name : Move to Infra/
-      run : cd Infra/
+    - name : Move to infra/
+      run : cd infra/
 
     - name: Terraform Init
       run: terraform init
@@ -25,6 +25,6 @@ jobs:
     - name: Terraform Apply
       run: terraform apply -auto-approve
       env:
-        TF_VAR_credentials: ${{ secrets.TF_VAR_credentials }}
-        TF_VAR_project: ${{ env.TF_VAR_project}}
-        TF_VAR_location: ${{ env.TF_VAR_location}}
+        TF_VAR_credentials: ${{ secrets.TF_VAR_CREDENTIALS }}
+        TF_VAR_project: ${{ env.TF_VAR_PROJECTS}}
+        TF_VAR_location: ${{ env.TF_VAR_LOCATION}}
