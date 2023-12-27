@@ -17,7 +17,7 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
+          username: ${{ vars.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Setup Python
@@ -28,7 +28,7 @@ jobs:
       - name: Prefect Deploy 'hello'
         env:
           PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
-          PREFECT_API_URL: ${{ secrets.PREFECT_API_URL }}
+          PREFECT_API_URL: ${{ vars.PREFECT_API_URL }}
         run: |
           cd flows/
           pip install -r requirements.txt
