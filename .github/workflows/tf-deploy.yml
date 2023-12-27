@@ -18,8 +18,8 @@ jobs:
 
     - name: Write keys to local
       run: |
-        echo ${{ secrets.TF_JSON_PROJECT_KEY }} > "infra/project-key.json"
-        echo ${{ secrets.TF_JSON_BACKEND_KEY }} > "infra/backend-key.json"
+        echo '${{ secrets.TF_JSON_PROJECT_KEY }}' > "infra/project-key.json"
+        echo '${{ secrets.TF_JSON_BACKEND_KEY }}' > "infra/backend-key.json"
 
     - name: Terraform Apply
       run: |
