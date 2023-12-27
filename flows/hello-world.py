@@ -12,7 +12,7 @@ if __name__ == "__main__":
     deploy(
     hello_world.to_deployment(
         name = "hello-world-one",
-        cron = "*/5 * * * *",
+        cron = "*/45 * * * *",
         parameters = {"s" : "one"}
     ),
     hello_world.to_deployment(
