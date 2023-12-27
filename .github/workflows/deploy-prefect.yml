@@ -1,4 +1,4 @@
-name: Deploy Prefect flow
+name: Deploy Prefect flows
 
 on:
   push:
@@ -27,11 +27,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Prefect Deploy
+      - name: Prefect Deploy 'hello'
         env:
           PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
           PREFECT_API_URL: ${{ secrets.PREFECT_API_URL }}
         run: |
           cd flows/
           pip install -r requirements.txt
-          python hello-world.py
+          python hello.py

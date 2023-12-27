@@ -17,19 +17,8 @@ terraform {
 
 
 provider "google" {
-  credentials = var.credentials
+  credentials = "project-key.json"
   project     = var.project
   region      = var.region
   zone        = var.zone
-}
-
-#resource "google_compute_network" "vpc_network" {
-#  name = "datapipeline-network"
-#}
-
-#
-resource "google_storage_bucket" "data" {
-  name          = "my-bucket-2023-12-26"
-  location      = var.region
-  force_destroy = true
 }
