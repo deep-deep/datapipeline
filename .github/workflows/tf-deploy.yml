@@ -1,0 +1,30 @@
+name: Terraform Apply
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - infra/
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v3
+
+    - name: Write keys to local
+      run: |
+        echo ${{ secrets.TF_JSON_PROJECT_KEY }} > "infra/project-key.json"
+        echo ${{ secrets.TF_JSON_BACKEND_KEY }} > "infra/backend-key.json"
+
+    - name: Terraform Apply
+      run: |
+        cd infra/
+        terraform init
+        terraform plan
